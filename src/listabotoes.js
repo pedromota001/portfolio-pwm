@@ -1,7 +1,7 @@
 const lista_botoes = [
 
     "Sobre mim", 
-    "Projetos",
+    "Projetos e certificados",
     "Experiência",
     "Habilidades"
 ]

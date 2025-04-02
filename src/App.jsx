@@ -17,9 +17,6 @@ function App() {
       </div>
       <Descritivo/>
     </section>
-    <Botoes
-      lista_botoes = {lista_botoes}
-    />
     <Cards 
     lista_cards = {lista_botoes}
     />
