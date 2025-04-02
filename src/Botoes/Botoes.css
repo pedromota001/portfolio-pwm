@@ -1,0 +1,6 @@
+.div-botoes{
+    display: flex;
+    justify-content: space-evenly;
+    gap: 1px;
+    margin-top: 30px;
+}

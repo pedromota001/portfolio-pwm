@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@200..800&family=Krona+One&family=Lilita+One&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Oswald:wght@200..700&display=swap');
+
+
+.div-informacoes h1{
+    padding-top: 0px;
+    font-family: "Lilita One", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.div-informacoes h2{
+    font-family: "Dosis", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 50px;
+}
+
+.div-informacoes{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin-top: 80px;
+    grid-column: 2;
+}
+
+.div-informacoes-bottom{
+    display: flex;
+    flex-direction: column;
+    margin-top: 50px;
+    font-weight: bold;
+    grid-column: 2;
+}
+
+.div-informacoes-bottom h1{
+    align-self: center;
+    font-family: "Lilita One", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+.div-informacoes-bottom p{
+    width: 100%;
+    height: auto;
+    font-size: 15px;
+    margin: 0;
+    text-align: justify;
+    flex-grow: 1;
+}
+
+
+@media (max-width: 768px) {
+    .section-main {
+      grid-template-columns: 1fr;
+    }
+  
+    .div-informacoes-bottom {
+      grid-column: 1; 
+    }
+  }
