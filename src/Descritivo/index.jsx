@@ -6,6 +6,7 @@ const Descritivo = ()  => {
         <div className="div-informacoes">
             <h1>Pedro Mota</h1>
             <h2>Desenvolvedor full stack</h2>
+            <button>Ver repositórios</button>
         </div>
     )   
 }
