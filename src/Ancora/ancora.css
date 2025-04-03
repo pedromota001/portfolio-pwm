@@ -1,0 +1,12 @@
+a{
+    color: #f0f0f0;
+    line-height: 1.4;
+    margin-top: 10px;
+    font-family: "Krona One", sans-serif;
+    font-weight: 100;
+    font-style: normal;
+    font-size: 10px;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    padding: 0 10px;
+}

@@ -1,9 +1,10 @@
 const lista_botoes = [
 
     "Sobre mim", 
-    "Projetos e certificados",
+    "Projetos",
     "Experiência",
-    "Habilidades"
+    "Habilidades",
+    "Certificados"
 ]
 
 export default lista_botoes

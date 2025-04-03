@@ -10,7 +10,7 @@ const Cards = (props) => {
             {props.lista_cards.map((texto, index) => 
                <div key={index} className="div-cards-card">
                     <Botao texto={texto} />
-                    <Card texto={texto} />
+                    <Card texto={texto} id={texto.split(" ")[0].toLowerCase() + "-div"}/>
                </div>
             )}
         </div>

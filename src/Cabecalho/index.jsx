@@ -13,7 +13,7 @@ const Cabecalho = () => {
                     <Ancora
                         icon = "github"
                     />
-                    <Ancora/>
+                    <Ancora icon = "linkedin"/>
                 </div>
             </nav>
         </header>
