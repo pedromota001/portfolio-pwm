@@ -1,4 +1,7 @@
 import React, { useEffect, useState } from "react";
+import Swal from 'sweetalert2';
+import "./jogo-senha.css";
+import { Link } from "react-router-dom";
 
 function gerarSenhaSecreta() {
   const digitos = [];
@@ -31,15 +34,35 @@ export default function JogoSenha() {
     setSenha(gerarSenhaSecreta());
   }, []);
 
+  useEffect(() => {
+    document.body.classList.add("body-jogo");
+    return () => {
+      document.body.classList.remove("body-jogo");
+    };
+  }, []);
+
   const lidarComTentativa = () => {
     if (tentativa.length !== 4 || new Set(tentativa).size !== 4 || !/^[0-9]+$/.test(tentativa)) {
-      alert("Digite um número com 4 dígitos únicos (0-9)");
+      Swal.fire({
+        title: "Digite um número com 4 dígitos únicos (0-9)",
+        icon: 'error',
+        timer: 3000,
+        timerProgressBar: true,
+        showConfirmButton: false
+      })
       return;
     }
 
     const resultado = calcularBullsECows(tentativa, senha);
     if(resultado.bulls === 4){
-      alert("Você acertou a senha!!!!! Parabéns")
+      Swal.fire({
+        title: 'Você acertou!!!!!!! Parabéns.',
+        icon: 'success',
+        timer: 3000,
+        timerProgressBar: true,
+        showConfirmButton: false
+      })
+      
       const nova_tentativa = {
         tentativa: tentativa,
         bulls: resultado.bulls,
@@ -48,7 +71,6 @@ export default function JogoSenha() {
       
       setHistorico(prev => [nova_tentativa, ...prev]);
       setTentativa("");
-      //modificar e estilizar página
     }else{
       const nova_tentativa = {
         tentativa: tentativa,
@@ -61,32 +83,52 @@ export default function JogoSenha() {
     }
   };
 
+  const tentar_novamente = () => {
+    const senha = gerarSenhaSecreta();
+    setSenha(senha)
+    setHistorico([])
+    setTentativa("")
+  }
+
   return (
-    <div style={{ maxWidth: 400, margin: "auto", padding: 20 }}>
-      <h1>Jogo da Senha (Bulls and Cows)</h1>
+    <div className="div-geral">
+      <div className="div-geral-div-title">
+        <h1>Jogo da Senha</h1>
+        <h2>(Bulls and Cows)</h2>
+      </div>
       <input
         type="text"
         value={tentativa}
         onChange={(e) => setTentativa(e.target.value)}
         placeholder="Digite 4 dígitos únicos"
         maxLength={4}
-        style={{ padding: 10, fontSize: 16, width: "100%" }}
+        className="input-jogo"
       />
-      <button onClick={lidarComTentativa} style={{ padding: 10, marginTop: 10, width: "100%" }}>
+      <button onClick={lidarComTentativa} className="btn-tentar">
         Tentar
       </button>
-      <button onClick={() => alert("Senha secreta: " + senha)} style={{ marginTop: 10 }}>
-        Ver senha secreta
-      </button>
-
-      <h2 style={{ marginTop: 20 }}>Tentativas</h2>
-      <ul>
+      <div className="botoes-container">
+        <button onClick={() => alert("Senha secreta: " + senha)} className="btn-ver-senha">
+          Ver senha secreta
+        </button>
+        <button onClick={tentar_novamente} className="btn-sortear-senha">
+          Sortear outra senha
+        </button>
+      </div>
+      <h2>Tentativas</h2>
+      <ul className="lista-tentativas">
         {historico.map((item, index) => (
           <li key={index}>
             {item.tentativa} → {item.bulls} Bulls, {item.cows} Cows
           </li>
         ))}
       </ul>
+      <button
+        className="btn-portfolio"
+        onClick={() => window.location.href = "/"}
+      >
+        Voltar ao Portfólio
+      </button>
     </div>
   );
 }

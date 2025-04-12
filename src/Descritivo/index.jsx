@@ -6,9 +6,11 @@ const Descritivo = ()  => {
         <div className="div-informacoes">
             <h1>Pedro Mota</h1>
             <h2>Desenvolvedor full stack</h2>
-            <Link to="/senha">
-                <button>Cows and Bulls</button>
-            </Link>
+            <button
+                onClick={() => window.location.href = "/senha"}
+            >     
+                Cows and bulls
+            </button>
         </div>
     )   
 }
